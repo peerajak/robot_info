@@ -33,15 +33,15 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(robot_info_node src/robot_info_main.cpp src/robot_info_class.cpp src/agv_robot_info_class.cpp)
-add_dependencies(robot_info_node ${robot_info_node_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(robot_info_node
-   ${catkin_LIBRARIES}   
- )
-add_dependencies(robot_info_node robot_info_generate_messages_cpp)
+#add_executable(robot_info_node src/robot_info_main.cpp src/robot_info_class.cpp src/agv_robot_info_class.cpp src/hydraulic_system_monitor.cpp)
+#add_dependencies(robot_info_node ${robot_info_node_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+#target_link_libraries(robot_info_node
+#   ${catkin_LIBRARIES}   
+# )
+#add_dependencies(robot_info_node robot_info_generate_messages_cpp)
 
 
-add_executable(agv_robot_info_node src/agv_robot_info_main.cpp src/robot_info_class.cpp src/agv_robot_info_class.cpp)
+add_executable(agv_robot_info_node src/agv_robot_info_main.cpp src/robot_info_class.cpp src/agv_robot_info_class.cpp src/hydraulic_system_monitor.cpp )
 add_dependencies(agv_robot_info_node ${agv_robot_info_node_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(agv_robot_info_node
    ${catkin_LIBRARIES}   
