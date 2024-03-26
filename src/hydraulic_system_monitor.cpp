@@ -39,7 +39,7 @@ void HydraulicSystemMonitor::set_hydraulic_oil_pressure(std::string hop) {
 void HydraulicSystemMonitor::set_hydraulic_oil_all(std::string hot,
                                                    std::string hotfl,
                                                    std::string hop) {
-  _hydraulic_oil_temperature = hot.c_str();
-  _hydraulic_oil_tank_fill_level = hotfl.c_str();
-  _hydraulic_oil_pressure = hop.c_str();
+  _hydraulic_oil_temperature = hot;
+  _hydraulic_oil_tank_fill_level = hotfl;
+  _hydraulic_oil_pressure = hop;
 }
