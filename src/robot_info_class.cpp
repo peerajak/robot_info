@@ -2,10 +2,10 @@
 #include "robot_info/RobotInfo_msg.h"
 #include "ros/ros.h"
 #include <string>
-
-RobotInfo::RobotInfo(ros::NodeHandle *node_handle, std::string robot_description,
-                     std::string serial_number, std::string ip_address,
-                     std::string firmware_version)
+static int msg_counter = 0;
+RobotInfo::RobotInfo(ros::NodeHandle *node_handle,
+                     std::string robot_description, std::string serial_number,
+                     std::string ip_address, std::string firmware_version)
     : _robot_description(robot_description), _serial_number(serial_number),
       _ip_address(ip_address), _firmware_version(firmware_version) {
   this->nh = node_handle;
@@ -16,8 +16,12 @@ void RobotInfo::publish_data() {
   rbt_info_msg.data_field_02 = _serial_number;
   rbt_info_msg.data_field_03 = _ip_address;
   rbt_info_msg.data_field_04 = _firmware_version;
+
   ros::Rate loop_rate(1);
   while (ros::ok()) {
+    rbt_info_msg.data_field_09 =
+        std::string("message number: ") + std::to_string(msg_counter);
+    msg_counter++;
     pub.publish(rbt_info_msg);
     ros::spinOnce();
     loop_rate.sleep();

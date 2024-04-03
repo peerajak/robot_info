@@ -32,5 +32,6 @@ void AGVRobotInfo::publish_data() {
       _hydraulic_system_monitor.get_hydraulic_oil_tank_fill_level();
   rbt_info_msg.data_field_08 =
       _hydraulic_system_monitor.get_hydraulic_oil_pressure();
+
   RobotInfo::publish_data();
 }
